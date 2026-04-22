@@ -78,7 +78,6 @@ const Dashboard = () => {
                <span className="tag-bp-watch">BP Watch</span>
             </div>
           </div>
-          <Button variant="primary">Log Symptoms</Button>
         </div>
       </Card>
 

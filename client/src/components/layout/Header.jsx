@@ -8,7 +8,7 @@ const Header = () => {
         <button className="menu-button">
           <Menu size={24} />
         </button>
-        <span className="sidebar-logo-text">Serene</span>
+        <span className="sidebar-logo-text">SUSE-Health</span>
       </div>
 
       <div className="search-bar">

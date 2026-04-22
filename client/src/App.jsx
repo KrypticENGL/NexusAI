@@ -9,7 +9,7 @@ import Settings from './pages/Settings'
 function App() {
   const [currentView, setCurrentView] = useState('dashboard');
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem('serene-dark-mode');
+    const saved = localStorage.getItem('suse-health-dark-mode');
     return saved === 'true';
   });
 
@@ -20,7 +20,7 @@ function App() {
     } else {
       root.classList.remove('dark');
     }
-    localStorage.setItem('serene-dark-mode', isDarkMode);
+    localStorage.setItem('suse-health-dark-mode', isDarkMode);
   }, [isDarkMode]);
 
   const toggleDarkMode = () => setIsDarkMode(prev => !prev);

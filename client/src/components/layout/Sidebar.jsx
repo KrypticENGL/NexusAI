@@ -20,7 +20,7 @@ const Sidebar = ({ currentView, setCurrentView }) => {
         <div className="sidebar-logo-icon">
           S
         </div>
-        <h1 className="sidebar-logo-text">Serene</h1>
+        <h1 className="sidebar-logo-text">SUSE-Health</h1>
       </div>
 
       <nav className="sidebar-nav">
