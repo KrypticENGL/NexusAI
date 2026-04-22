@@ -18,7 +18,7 @@ const Sidebar = ({ currentView, setCurrentView, isOpen, onClose }) => {
     <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
       <div className="sidebar-header">
         <div className="sidebar-logo-icon">
-          S
+          <img src="/ico.svg" alt="SUSE-Health Logo" width="32" height="32" />
         </div>
         <h1 className="sidebar-logo-text">SUSE-Health</h1>
         <button className="sidebar-close-btn" onClick={onClose} aria-label="Close menu">

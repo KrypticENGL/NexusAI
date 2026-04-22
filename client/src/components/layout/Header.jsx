@@ -8,6 +8,7 @@ const Header = ({ onMenuToggle }) => {
         <button className="menu-button" onClick={onMenuToggle} aria-label="Toggle menu">
           <Menu size={24} />
         </button>
+        <img src="/ico.svg" alt="Logo" width="28" height="28" style={{ marginLeft: '4px' }} />
         <span className="sidebar-logo-text">SUSE-Health</span>
       </div>
 
