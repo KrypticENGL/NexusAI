@@ -1,11 +1,11 @@
 import React from 'react';
 import { Bell, Menu, Search } from 'lucide-react';
 
-const Header = () => {
+const Header = ({ onMenuToggle }) => {
   return (
     <header className="header">
       <div className="mobile-menu">
-        <button className="menu-button">
+        <button className="menu-button" onClick={onMenuToggle} aria-label="Toggle menu">
           <Menu size={24} />
         </button>
         <span className="sidebar-logo-text">SUSE-Health</span>

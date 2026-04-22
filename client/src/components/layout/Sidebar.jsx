@@ -1,7 +1,7 @@
 import React from 'react';
-import { Home, FileText, Calendar, Activity, Settings, User } from 'lucide-react';
+import { Home, FileText, Calendar, Activity, Settings, User, X } from 'lucide-react';
 
-const Sidebar = ({ currentView, setCurrentView }) => {
+const Sidebar = ({ currentView, setCurrentView, isOpen, onClose }) => {
   const navItems = [
     { id: 'dashboard', icon: <Home size={24} />, label: 'Dashboard' },
     { id: 'myHealth', icon: <Activity size={24} />, label: 'My Health' },
@@ -15,12 +15,15 @@ const Sidebar = ({ currentView, setCurrentView }) => {
   };
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
       <div className="sidebar-header">
         <div className="sidebar-logo-icon">
           S
         </div>
         <h1 className="sidebar-logo-text">SUSE-Health</h1>
+        <button className="sidebar-close-btn" onClick={onClose} aria-label="Close menu">
+          <X size={24} />
+        </button>
       </div>
 
       <nav className="sidebar-nav">

@@ -127,21 +127,68 @@ input {
 
 /* Sidebar styles */
 .sidebar {
-  display: none;
+  display: flex;
   flex-direction: column;
-  width: 256px;
+  width: 280px;
   height: 100vh;
   background-color: var(--color-surface);
   border-right: 1px solid var(--color-surface-variant);
   padding: var(--spacing-6);
-  position: sticky;
+  position: fixed;
   top: 0;
-  transition: background-color 0.4s ease, border-color 0.4s ease;
+  left: -280px;
+  z-index: 200;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.4s ease,
+              border-color 0.4s ease;
+}
+
+.sidebar-open {
+  left: 0;
 }
 
 @media (min-width: 768px) {
   .sidebar {
-    display: flex;
+    position: sticky;
+    left: 0;
+    width: 256px;
+  }
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 150;
+  animation: fadeIn 0.25s ease;
+}
+
+@media (min-width: 768px) {
+  .sidebar-overlay {
+    display: none;
+  }
+}
+
+.sidebar-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  color: var(--color-outline);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.sidebar-close-btn:hover {
+  color: var(--color-primary);
+  background-color: var(--color-surface-variant);
+}
+
+@media (min-width: 768px) {
+  .sidebar-close-btn {
+    display: none;
   }
 }
 
@@ -569,6 +616,8 @@ input {
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--spacing-4);
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
 }
 
 .section-title {
@@ -716,10 +765,12 @@ input {
 .form-row {
   display: flex;
   gap: var(--spacing-4);
+  flex-wrap: wrap;
 }
 
 .form-row .form-group {
   flex: 1;
+  min-width: 200px;
 }
 
 .insights-grid {
@@ -928,7 +979,8 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-6);
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
 }
 
 .vital-list-info {
@@ -936,7 +988,22 @@ input {
   align-items: center;
   gap: var(--spacing-4);
   flex: 1;
-  min-width: 180px;
+  min-width: 160px;
+}
+
+@media (max-width: 640px) {
+  .vital-list-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vital-list-value-box {
+    min-width: unset;
+  }
+
+  .vital-list-status {
+    min-width: unset;
+  }
 }
 
 .vital-icon-box {
@@ -1022,7 +1089,8 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-6);
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
 }
 
 .appointment-list-info {
@@ -1030,6 +1098,34 @@ input {
   align-items: center;
   gap: var(--spacing-4);
   flex: 1.5;
+  min-width: 180px;
+}
+
+@media (max-width: 640px) {
+  .appointment-list-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .appointment-list-schedule {
+    flex: unset;
+    flex-direction: row;
+    gap: var(--spacing-4);
+  }
+
+  .appointment-list-location {
+    flex: unset;
+  }
+
+  .appointment-list-actions {
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+  }
+
+  .appointment-list-item {
+    position: relative;
+  }
 }
 
 .appointment-icon-box {
